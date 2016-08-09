@@ -1,0 +1,141 @@
+<html>
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+
+    <link href="/static/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/cannelle/css/main-template.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/flat-ui/css/flat-ui.css">
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>-->
+    <script src="/static/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/static/node_modules/bootbox/bootbox.min.js"></script>
+
+
+    <script>
+function signup()
+{
+     console.log( "Signing up !" );
+            $.ajax({
+       url : '/generatecode',
+       type : 'POST',
+       data : 'last-name='+$('#last-name').val()+'&password='+$('#login-pass').val()+'&email='+$('#login-email').val(),
+       dataType : 'json', // On désire recevoir du HTML
+       success : function(data){ // code_html contient le HTML renvoyé
+           console.log('received signup answer from server');
+           $(".se-pre-con").hide();
+           if(data.status == 'nok')
+           {
+               console.log('Error : ' + data.status);
+               bootbox.alert(data.message, function() {
+  console.log("Hello world callback");
+});
+               //$( "#password-group" ).addClass('has-error');
+               //$( ".login-form" ).effect( "shake" );
+           }
+           else if(data.status == "ok")
+           {
+               console.log('Signed up !');
+               //console.log('Login ok !');
+               //window.location.href = '/profile/view';
+           }
+           else
+           {
+               console.log('Unknown answer from server' + data.status)
+           }
+       }
+    });
+        </script>
+</head>
+
+<body>
+
+    <div>
+
+
+<form class="contact" action="/generatecode" method="post">
+
+        <div class="login-form">
+            <div class="form-group">
+                <input type="text" class="form-control login-field" value="" placeholder="Last name" name="last-name">
+                
+            </div>
+
+            <div class="form-group">
+                <input type="text" class="form-control login-field" value="" placeholder="First name" name="first-name">
+        
+            </div>
+
+            <div class="form-group">
+                <input type="text" class="form-control login-field" value="" placeholder="Booking reference" name="booking-reference">
+              
+            </div>
+
+            <div class="form-group">
+                <input type="text" class="form-control login-field" value="" placeholder="Departure Airport" name="from-airport">
+                
+            </div>
+
+             <div class="form-group">
+                <input type="text" class="form-control login-field" value="" placeholder="Arrival Airport" name="to-airport">
+                
+            </div>
+
+             <div class="form-group">
+                <input type="text" class="form-control login-field" value="" placeholder="Carrier" name="carrier">
+                
+            </div>
+
+             <div class="form-group">
+                <input type="text" class="form-control login-field" value="" placeholder="Flight number" name="flight-number">
+                
+            </div>
+
+
+             <div class="form-group">
+                <input type="text" class="form-control login-field" value="" placeholder="Flight date" name="flight-date">
+                
+            </div>
+
+             <div class="form-group">
+                <input type="text" class="form-control login-field" value="" placeholder="Class" name="class">
+                
+            </div>
+
+             <div class="form-group">
+                <input type="text" class="form-control login-field" value="" placeholder="Seat number" name="seat-number">
+                
+            </div>
+
+             <div class="form-group">
+                <input type="text" class="form-control login-field" value="" placeholder="Seat row" name="seat-row">
+                
+            </div>
+
+             <div class="form-group">
+                <input type="text" class="form-control login-field" value="" placeholder="Passenger status" name="passenger-status">
+                
+            </div>
+
+               <div class="form-group">
+                <input type="text" class="form-control login-field" value="" placeholder="Passenger status" name="check-in-number">
+                
+            </div>
+        </div>
+
+
+        <!--<a class="btn btn-primary btn-lg btn-block" href="#" onclick="signup()">Let me into the lounge !!</a>-->
+
+       
+        <input type="submit" class="btn btn-primary btn-lg btn-block" value="Let me into the lounge !!"/>
+
+</form>
+
+
+    </div>
+
+
+
+
+</html>

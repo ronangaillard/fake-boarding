@@ -1,0 +1,153 @@
+.cannelle-body {
+  padding-top: 50px;
+  background-color: #F1C40F;
+  color: #c0392b;
+
+}
+
+.basic-template {
+  padding: 40px 15px;
+}
+
+.cannelle-centered {
+  text-align: center;
+}
+
+.navbar-cannelle {
+    background-color: #F1C40F;
+    border-color: #F1C40F;
+    color: #D35400;  
+}
+
+.navbar-cannelle a {
+    color: #c0392b;  
+}
+
+.navbar-cannelle .active a{
+  color:#f39c12
+}
+
+.cannelle-login-screen {
+    line-height: 1.72222;
+    min-height: 473px;
+    padding: 128px 250px 33px 250px;
+    width: 900px;
+      display: block;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+
+.cannelle-login-icon {
+      display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+    top: 180px;
+    width: 150px;
+}
+
+.cannelle-login-icon > img {
+    display: block;
+    margin-bottom: 6px;
+    width: 100%;
+}
+
+img {
+    border: 0;
+}
+
+img {
+    vertical-align: middle;
+}
+
+.cannelle-login-icon > h4 {
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 34px;
+    opacity: .95;
+    text-align: center;
+}
+
+.cannelle-login-icon > h4 small {
+    color: inherit;
+    display: inline;
+    font-size: inherit;
+    font-weight: 700;
+}
+
+.cannelle-login-form {
+    background-color: #edeff1;
+    padding: 24px 23px 20px;
+    position: relative;
+    border-radius: 6px;
+}
+
+.cannelle-login-form .cannelle-login-field .cannelle-login-field-icon {
+    color: #bfc9ca;
+    font-size: 16px;
+    position: absolute;
+    right: 15px;
+    top: 3px;
+    -webkit-transition: all .25s;
+    transition: all .25s;
+}
+
+.cannelle-form-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+
+
+.canelle-form-control, .select2-search input[type="text"] {
+    border: 2px solid #bdc3c7;
+    color: #34495e;
+    font-family: "Lato", Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.467;
+    padding: 8px 12px;
+    height: 42px;
+    border-radius: 6px;
+    box-shadow: none;
+    -webkit-transition: border 0.25s linear, color 0.25s linear, background-color 0.25s linear;
+    transition: border 0.25s linear, color 0.25s linear, background-color 0.25s linear;
+}
+
+.cannelle-fui-lock {
+    font-family: 'Flat-UI-Icons';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.no-js #loader { display: none;  }
+.js #loader { display: block; position: absolute; left: 100px; top: 0; }
+.se-pre-con {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	background: url(/static/images/loading.gif) center no-repeat;
+}
+
+.centered-text {
+    margin-left: auto;
+  margin-right: auto;
+  float: none;
+} 
+
+.top-selector {
+  margin-left: auto;
+  margin-right: auto;
+  width: 300;
+}
+
+
+
