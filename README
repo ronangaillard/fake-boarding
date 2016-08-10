@@ -1,5 +1,0 @@
-To run the server : `python server.py`
-
-Before you should run `pip install flask treeopoem`
-
-And manually install Ghostscript on Mac OSX
