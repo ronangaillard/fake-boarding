@@ -3,13 +3,13 @@ import os
 from flask import Flask, request, session, g, redirect, url_for, abort, render_template, flash
 import treepoem
 from datetime import date, datetime
+import uuid
 
-
-def generer_barcode(data):
+def generer_barcode(data, aztec_filename, pdf_filename):
     image = treepoem.generate_barcode('azteccode', data ,{})
-    image.save('static/aztec-code.png')
+    image.save('static/' + aztec_filename)
     image = treepoem.generate_barcode('pdf417', data ,{})
-    image.save('static/pdf417-code.png')
+    image.save('static/' + pdf_filename)
 
 def resize_str(string, size):
     return string[0:size].ljust(size)
@@ -62,8 +62,10 @@ def generate_code():
 
     pl = generer_payload(request.form['last-name'], request.form['first-name'], request.form['booking-reference'], request.form['from-airport'], request.form['to-airport'], request.form['carrier'], request.form['flight-number'], flight_date, request.form['seat-number'],request.form['seat-row'],request.form['passenger-status'],request.form['check-in-number'])
 
-    generer_barcode(pl)
-    return render_template('view_code.html')
+    aztec_filename = str(uuid.uuid4()) + '.png'
+    pdf_filename = str(uuid.uuid4()) + '.png'
+    generer_barcode(pl,aztec_filename,pdf_filename)
+    return render_template('view_code.html', aztec_png = aztec_filename, pdf_png = pdf_filename)
 
 
 if __name__ == '__main__':
