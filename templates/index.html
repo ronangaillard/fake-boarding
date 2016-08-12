@@ -53,75 +53,82 @@ function signup()
 
     <div>
 
+<form class="contact" action="/parsecode" method="post">
+
+    <textarea cols="50" rows="4" name="inputcode" placeholder="Boarding pass code"></textarea>
+    <input type="submit" class="btn btn-primary btn-lg btn-block" value="Hack my code"/>
+
+</form>
 
 <form class="contact" action="/generatecode" method="post">
 
         <div class="login-form">
             <div class="form-group">
-                <input type="text" class="form-control login-field" value="" placeholder="Last name" name="last-name">
+                <input type="text" class="form-control login-field" value="{{inputlastname}}" placeholder="Last name" name="last-name">
                 
             </div>
 
             <div class="form-group">
-                <input type="text" class="form-control login-field" value="" placeholder="First name" name="first-name">
+                <input type="text" class="form-control login-field" value="{{inputfirstname}}" placeholder="First name" name="first-name">
         
             </div>
 
             <div class="form-group">
-                <input type="text" class="form-control login-field" value="" placeholder="Booking reference" name="booking-reference">
+                <input type="text" class="form-control login-field" value="{{inputbookingreference}}" placeholder="Booking reference" name="booking-reference">
               
             </div>
 
             <div class="form-group">
-                <input type="text" class="form-control login-field" value="" placeholder="Departure Airport" name="from-airport">
+                <input type="text" class="form-control login-field" value="{{inputfromairport}}" placeholder="Departure Airport" name="from-airport">
                 
             </div>
 
              <div class="form-group">
-                <input type="text" class="form-control login-field" value="" placeholder="Arrival Airport" name="to-airport">
+                <input type="text" class="form-control login-field" value="{{inputtoairport}}" placeholder="Arrival Airport" name="to-airport">
                 
             </div>
 
              <div class="form-group">
-                <input type="text" class="form-control login-field" value="" placeholder="Carrier" name="carrier">
+                <input type="text" class="form-control login-field" value="{{inputcarrier}}" placeholder="Carrier" name="carrier">
                 
             </div>
 
              <div class="form-group">
-                <input type="text" class="form-control login-field" value="" placeholder="Flight number" name="flight-number">
+                <input type="text" class="form-control login-field" value="{{inputflightnumber}}" placeholder="Flight number" name="flight-number">
                 
             </div>
 
 
              <div class="form-group">
-                <input type="text" class="form-control login-field" value="" placeholder="Flight date" name="flight-date">
+                <input type="text" class="form-control login-field" value="{{inputflightdate}}" placeholder="Flight date" name="flight-date">
                 
             </div>
 
              <div class="form-group">
-                <input type="text" class="form-control login-field" value="" placeholder="Class" name="class">
+                <input type="text" class="form-control login-field" value="{{inputclass}}" placeholder="Class" name="class">
                 
             </div>
 
              <div class="form-group">
-                <input type="text" class="form-control login-field" value="" placeholder="Seat number" name="seat-number">
+                <input type="text" class="form-control login-field" value="{{inputseatnumber}}" placeholder="Seat number" name="seat-number">
                 
             </div>
 
              <div class="form-group">
-                <input type="text" class="form-control login-field" value="" placeholder="Seat row" name="seat-row">
+                <input type="text" class="form-control login-field" value="{{inputseatrow}}" placeholder="Seat row" name="seat-row">
                 
+            </div>
+
+            <div class="form-group">
+                <input type="text" class="form-control login-field" value="{{inputcheckinnumber}}" placeholder="Check-in number" name="check-in-number">
+
             </div>
 
              <div class="form-group">
-                <input type="text" class="form-control login-field" value="" placeholder="Passenger status" name="passenger-status">
+                <input type="text" class="form-control login-field" value="{{inputpassengerstatus}}" placeholder="Passenger status" name="passenger-status">
                 
             </div>
 
-               <div class="form-group">
-                <input type="text" class="form-control login-field" value="" placeholder="Check-in number" name="check-in-number">
-                
-            </div>
         </div>
 
 

@@ -54,6 +54,70 @@ app.debug = True
 def render_index():
     return render_template('index.html')
 
+@app.route('/parsecode', methods=['POST'])
+def parsecode():
+    inputcode=request.form['inputcode']
+
+    #M1
+    offs=2
+    #First and last name
+    size=inputcode[offs:offs+20].find('/')
+    lastname=inputcode[offs:offs+size]
+    firstname=inputcode[offs+size+1:offs+20]
+    firstname=firstname[:firstname.find(' ')]
+    offs+=20
+    #Electronic ticket indicator
+    offs+=1
+    #Booking reference + space
+    bookingreference=inputcode[offs:offs+6]
+    offs+=7
+    #FROM airport
+    fromairport=inputcode[offs:offs+3]
+    offs+=3
+    #TO airport
+    toairport=inputcode[offs:offs+3]
+    offs+=3
+    #Operating carrier Designator + space
+    carrier=inputcode[offs:offs+2]
+    offs+=3
+    #Flight number + space
+    flightnumber=inputcode[offs:offs+4]
+    offs+=5
+    #Flight date
+    flightdate=inputcode[offs:offs+3]
+#    today=date.today()
+    flightdate=datetime.strptime(flightdate, '%y%j').replace(year=date.today().year).strftime('%d/%m/%Y')
+    offs+=3
+    #Class
+    compartment=inputcode[offs:offs+1]
+    offs+=1
+    #Seat number
+    seatnumber=inputcode[offs:offs+3]
+    offs+=3
+    #Seat row
+    seatrow=inputcode[offs:offs+1]
+    offs+=1
+    #Check in number + space
+    checkinnumber=inputcode[offs:offs+4]
+    offs+=5
+    #Passenger status
+    passengerstatus=inputcode[offs:offs+1]
+
+    return render_template('index.html',inputlastname=lastname,
+                                        inputfirstname=firstname,
+                                        inputbookingreference=bookingreference,
+                                        inputfromairport=fromairport,
+                                        inputtoairport=toairport,
+                                        inputcarrier=carrier,
+                                        inputflightnumber=flightnumber,
+                                        inputflightdate=flightdate,
+                                        inputclass=compartment,
+                                        inputseatnumber=seatnumber,
+                                        inputseatrow=seatrow,
+                                        inputcheckinnumber=checkinnumber,
+                                        inputpassengerstatus=passengerstatus
+                                        )
+
 
 
 @app.route('/generatecode', methods=['POST'])
